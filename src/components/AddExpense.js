@@ -1,17 +1,6 @@
 import React, { useState } from 'react';
-
-// Try to import context hooks, but handle gracefully if not available (for tests)
-let useNavigate, useExpenses;
-try {
-  const routerModule = require('react-router-dom');
-  const contextModule = require('../ExpenseContext');
-  useNavigate = routerModule.useNavigate;
-  useExpenses = contextModule.useExpenses;
-} catch (e) {
-  // Fallback for tests
-  useNavigate = () => () => {};
-  useExpenses = () => ({ addExpense: () => {} });
-}
+import { useNavigate } from "react-router-dom"
+import { useExpenses } from "../ExpenseContext"
 
 const AddExpense = () => {
   const [formData, setFormData] = useState({
