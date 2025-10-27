@@ -27,8 +27,8 @@ const AddExpense = () => {
     }
     
     // Add expense if context is available
-    if (addExpense && typeof addExpense === 'function') {
-      addExpense({
+    if (context.addExpense && typeof context.addExpense === 'function') {
+      context.addExpense({
         ...formData,
         amount: parseFloat(formData.amount)
       });
