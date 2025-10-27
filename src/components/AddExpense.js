@@ -10,17 +10,8 @@ const AddExpense = () => {
     description: '',
     date: new Date().toISOString().split('T')[0]
   });
-
-  // Try to use hooks, fallback to no-ops for tests
-  let navigate, addExpense;
-  try {
-    navigate = useNavigate();
-    const context = useExpenses();
-    addExpense = context.addExpense;
-  } catch (e) {
-    navigate = () => {};
-    addExpense = () => {};
-  }
+  const navigate = useNavigate();
+  const context = useExpenses();
 
   const handleChange = (e) => {
     setFormData({
